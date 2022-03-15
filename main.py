@@ -77,22 +77,22 @@ get_questions()
 
 
 def ans_questions_science():
-   question_list = question_bank['science']
-   money_won = 1
-   for keys in question_list:
-    pick_quest = input('enter a letter: ')
-    quest = question_list[keys]['question']
-    if pick_quest != keys:
-        pass
-    else:
-        print(quest)
-    answer = str(input('Enter an answer: '))
-    ans = question_list[keys ]['answer']
-    if answer == ans:
-        money_won = money_won * 500
-        print(f"You just won {money_won}")
-    else:
-        print('wrong')
+    question_list = question_bank['science']
+    money_won = 1
+    for keys in question_list:
+        pick_quest = input('enter a letter: ')
+        quest = question_list[keys]['question']
+        if pick_quest != keys:
+            pass
+        else:
+            print(quest)
+        answer = str(input('Enter an answer: '))
+        ans = question_list[keys]['answer']
+        if answer == ans:
+            money_won = money_won * 500
+            print(f"You just won {money_won}")
+        else:
+            print('wrong')
 
 
 ans_questions_science()
@@ -115,14 +115,6 @@ ans_questions_science()
 #
 #
 # ans_questions_politics()
-
-
-
-
-
-
-
-
 
 
 # for keys in question_list:
