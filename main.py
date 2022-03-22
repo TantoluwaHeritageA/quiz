@@ -62,19 +62,14 @@ question_bank = {
 
 
 def get_questions():
-    choice = input('enter segment: ')
+    choice = input("Enter segment: politics or science, pick one; ")
     if choice in question_bank:
-        question_list = question_bank["science"]
-        print('you have chosen science segment, proceed by picking a letter')
+        question_list = question_bank[choice]
+        print(question_list)
+        print(f'you have chosen {choice} segment, proceed by picking a letter')
 
-    elif choice in question_bank:
-        question_list = question_bank["politics"]
-        print('you have chosen politics segment, proceed by picking a letter')
     else:
         print("there are two segments;science & politics ")
-
-
-get_questions()
 
 
 def ans_questions_science():
@@ -101,16 +96,18 @@ def ans_questions_science():
 
 
 # end=" "
-ans_questions_science()
 
 
 def ans_questions_politics():
     question_list = question_bank['politics']
     money_won = 1
     for keys in question_list:
-        quest = question_list[keys]['question']
-
-        print(quest)
+        pick_quests = input('enter a letter: ')
+        quests = question_list[keys]['question']
+        if pick_quests != keys:
+            pass
+        else:
+            print(quests)
         answer = str(input('Enter an answer: '))
         ans = question_list[keys]['answer']
         if answer == ans.lower():
@@ -121,8 +118,15 @@ def ans_questions_politics():
             print('wrong')
 
 
-ans_questions_politics()
+def check():
+    option = get_questions()
+    if option == 'science':
+        return ans_questions_science()
+    else:
+        return ans_questions_politics()
 
+
+check()
 
 # for keys in question_list:
 #     choice = input('enter a letter: ')
