@@ -4,6 +4,7 @@ question_bank = {
             'question': 'In what tabular display are the chemical elements typically displayed?',
             'answer': 'Periodic table'
         },
+
         'b': {
             'question': 'What tissue connects bone to muscle?',
             'answer': 'Tendons'
@@ -20,42 +21,42 @@ question_bank = {
             'question': 'At room temperature, what is the normal state of the element Mercury?',
             'answer': 'Liquid'
         },
+    },
 
-        'politics': {
-            'a': {
-                'question': 'Who is the current British head of state?',
-                'answer': 'Queen Elizabeth',
-            },
-            'b': {
-                'question': 'What does the acronym MP stands for in politics?',
-                'answer': 'Member of Parliament'
+    'politics': {
+        'a': {
+            'question': 'Who is the current British head of state?',
+            'answer': 'Queen Elizabeth',
+        },
+        'b': {
+            'question': 'What does the acronym MP stands for in politics?',
+            'answer': 'Member of Parliament'
 
-            },
+        },
 
-            'c': {
+        'c': {
 
-                'question': 'Which branch of government is responsible for making laws?',
+            'question': 'Which branch of government is responsible for making laws?',
 
-                'answer': 'Legislative'
+            'answer': 'Legislative'
 
-            },
+        },
 
-            'd': {
+        'd': {
 
-                'question': 'What is the lower house of the Parliament of the United Kingdom called?',
+            'question': 'What is the lower house of the Parliament of the United Kingdom called?',
 
-                'answer': 'The House of Commons'
+            'answer': 'The House of Commons'
 
-            },
+        },
 
-            'e': {
+        'e': {
 
-                'question': 'When did the concepts of democracy first originate?',
+            'question': 'When did the concepts of democracy first originate?',
 
-                'answer': 'Ancient Greece'
+            'answer': 'Ancient Greece'
 
-            },
-        }
+        },
     }
 }
 
@@ -68,7 +69,7 @@ def get_questions():
 
     elif choice in question_bank:
         question_list = question_bank["politics"]
-        print('you have chosen science segment, proceed by picking a letter')
+        print('you have chosen politics segment, proceed by picking a letter')
     else:
         print("there are two segments;science & politics ")
 
@@ -88,33 +89,39 @@ def ans_questions_science():
             print(quest)
         answer = str(input('Enter an answer: '))
         ans = question_list[keys]['answer']
-        if answer == ans:
+        attempts = 2
+        total = 0
+
+        if answer == ans.lower():
             money_won = money_won * 500
-            print(f"You just won {money_won}")
+            print(f"You just won € {money_won}")
+
         else:
             print('wrong')
 
 
+# end=" "
 ans_questions_science()
 
 
-# def ans_questions_politics():
-#     for keys in politics:
-#         pick_quest = input('enter a letter: ')
-#         quest = politics[keys]['question']
-#         if pick_quest != keys:
-#             pass
-#         else:
-#             print(quest)
-#         answer = str(input('Enter an answer: '))
-#         ans = politics[keys]['answer']
-#         if answer == ans:
-#             print('correct')
-#         else:
-#             print('wrong')
-#
-#
-# ans_questions_politics()
+def ans_questions_politics():
+    question_list = question_bank['politics']
+    money_won = 1
+    for keys in question_list:
+        quest = question_list[keys]['question']
+
+        print(quest)
+        answer = str(input('Enter an answer: '))
+        ans = question_list[keys]['answer']
+        if answer == ans.lower():
+            money_won = money_won * 500
+            print(f"You just won € {money_won}")
+
+        else:
+            print('wrong')
+
+
+ans_questions_politics()
 
 
 # for keys in question_list:
