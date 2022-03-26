@@ -1,6 +1,18 @@
 from quiz import question_bank
 
+
+def starting_message():
+    print('Welcome to who wants to be a millionaire 🥁🥁🥁 ')
+    print('There are three segments, you can choose from; \n science - geeks \n politics - book worms \n geography - explorers')
+    print('There are 10 questions and you have two attempts, if you get the answer wrong twice, the game ends')
+    print('Good luck 🏋🏻‍♂️🏋🏻‍♂️')
+
+
+starting_message()
+
+
 choice = input("Enter segment: politics,geography or science, pick one; ")
+# money_won = 500
 
 
 def get_questions_science():
@@ -23,8 +35,11 @@ def get_questions_science():
                     attempt = attempt - 1
                     # money_won = money_won - 100
                     print(
-                        f"you have {attempt} attempt ,, try again \n Your new balance is {money_won} euros")
-                    exit
+                        f"you have {attempt} attempt ,,  ")
+                    if attempt == 0:
+                        print(
+                            f' Game over !!!! Total money earned is € {money_won} 👏👏👏👏👏.  ')
+                        return
     else:
         pass
 
@@ -48,8 +63,11 @@ def get_questions_politics():
                     attempts = attempts - 1
                     # money_won = money_won - 100
                     print(
-                        f"you have {attempts} attempt ,, try again \n Your new balance is {money_won} euros")
-                    exit
+                        f"you have {attempts} attempt ,, ")
+                    if attempts == 0:
+                        print(
+                            f' Game over !!!! Total money earned is € {money_won} 👏👏👏👏👏.  ')
+                        return
     else:
         pass
 
@@ -74,8 +92,11 @@ def get_questions_geog():
                     attempt = attempt - 1
                     # money_won = money_won - 1
                     print(
-                        f"you have {attempt} attempt ,, try again \n Your new balance is {money_won} euros")
-                    exit
+                        f"you have {attempt} attempt ,, \n ")
+                    if attempt == 0:
+                        print(
+                            f' Game over !!!! Total money earned is € {money_won} 👏👏👏👏👏.  ')
+                        return
     else:
         pass
 
