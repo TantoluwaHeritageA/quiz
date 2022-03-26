@@ -103,7 +103,7 @@ question_bank = {
         },
         5: {
             'question': 'What are the only two countries to have a land border with the US',
-            'answer': ' Canada and Mexico'
+            'answer': 'Canada and Mexico'
         },
         6: {
             'question': 'Which country is also called The Netherlands?',

@@ -6,8 +6,8 @@ choice = input("Enter segment: politics,geography or science, pick one; ")
 def get_questions_science():
     if choice == 'science':
         question_soups = question_bank['science']
+        money_won = 500
         for key in question_soups:
-            money_won = 500
             quest = question_soups[key]['question']
             print(quest)
             count = 0
@@ -24,6 +24,7 @@ def get_questions_science():
                     # money_won = money_won - 100
                     print(
                         f"you have {attempt} attempt ,, try again \n Your new balance is {money_won} euros")
+                    exit
     else:
         pass
 
@@ -31,8 +32,8 @@ def get_questions_science():
 def get_questions_politics():
     if choice == 'politics':
         question_soup = question_bank['politics']
+        money_won = 500
         for keys in question_soup:
-            money_won = 500
             quests = question_soup[keys]['question']
             print(quests)
             attempts = 2
@@ -48,6 +49,7 @@ def get_questions_politics():
                     # money_won = money_won - 100
                     print(
                         f"you have {attempts} attempt ,, try again \n Your new balance is {money_won} euros")
+                    exit
     else:
         pass
 
@@ -56,15 +58,15 @@ def get_questions_geog():
     # choice = input("Enter segment: politics or science, pick one; ")
     if choice == 'geography':
         question_soupy = question_bank['geography']
+        money_won = 500
         for keys in question_soupy:
-            money_won = 500
             quests = question_soupy[keys]['question']
             print(quests)
             ans = question_soupy[keys]['answer']
             attempt = 2
             while attempt > 0:
+                answer = str(input('Enter an answer: '))
                 if answer == ans.lower():
-                    answer = str(input('Enter an answer: '))
                     money_won = money_won + 500
                     print(f"You just won € {money_won}")
                     break
@@ -73,6 +75,7 @@ def get_questions_geog():
                     # money_won = money_won - 1
                     print(
                         f"you have {attempt} attempt ,, try again \n Your new balance is {money_won} euros")
+                    exit
     else:
         pass
 
