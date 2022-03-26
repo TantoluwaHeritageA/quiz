@@ -1,36 +1,80 @@
 from quiz import question_bank
 
+choice = input("Enter segment: politics,geography or science, pick one; ")
 
-def get_questions():
-    choice = input("Enter segment: politics or science, pick one; ")
-    if choice == 'politics':
-        question_soup = question_bank['politics']
-        money_won = 1
-        for keys in question_soup:
-            quests = question_soup[keys]['question']
-            print(quests)
-            answer = str(input('Enter an answer: '))
-            ans = question_soup[keys]['answer']
-            if answer == ans.lower():
-                money_won = money_won * 500
-                print(f"You just won € {money_won}")
-            else:
-                print(f"You just lost 100 euros ")
-    elif choice == 'science':
+
+def get_questions_science():
+    if choice == 'science':
         question_soups = question_bank['science']
-        money_won = 1
         for key in question_soups:
+            money_won = 500
             quest = question_soups[key]['question']
             print(quest)
-            answer = str(input('Enter an answer: '))
+            count = 0
+            attempt = 2
             ans = question_soups[key]['answer']
-            if answer == ans.lower():
-                money_won = money_won * 500
-                print(f"You just won € {money_won}")
-            else:
-                print("incorrect ")
+            while attempt > 0:
+                answer = str(input('Enter an answer: '))
+                if answer == ans.lower():
+                    money_won = money_won + 500
+                    print(f"You just won € {money_won}")
+                    break
+                else:
+                    attempt = attempt - 1
+                    # money_won = money_won - 100
+                    print(
+                        f"you have {attempt} attempt ,, try again \n Your new balance is {money_won} euros")
     else:
-        print("end")
+        pass
 
 
-get_questions()
+def get_questions_politics():
+    if choice == 'politics':
+        question_soup = question_bank['politics']
+        for keys in question_soup:
+            money_won = 500
+            quests = question_soup[keys]['question']
+            print(quests)
+            attempts = 2
+            ans = question_soup[keys]['answer']
+            while attempts > 0:
+                answer = str(input('Enter an answer: '))
+                if answer == ans.lower():
+                    money_won = money_won + 500
+                    print(f"You just won € {money_won}")
+                    break
+                else:
+                    attempts = attempts - 1
+                    # money_won = money_won - 100
+                    print(
+                        f"you have {attempts} attempt ,, try again \n Your new balance is {money_won} euros")
+    else:
+        pass
+
+
+def get_questions_geog():
+    # choice = input("Enter segment: politics or science, pick one; ")
+    if choice == 'geography':
+        question_soupy = question_bank['geography']
+        for keys in question_soupy:
+            money_won = 500
+            quests = question_soupy[keys]['question']
+            print(quests)
+            ans = question_soupy[keys]['answer']
+            attempt = 2
+            while attempt > 0:
+                if answer == ans.lower():
+                    answer = str(input('Enter an answer: '))
+                    money_won = money_won + 500
+                    print(f"You just won € {money_won}")
+                    break
+                else:
+                    attempt = attempt - 1
+                    # money_won = money_won - 1
+                    print(
+                        f"you have {attempt} attempt ,, try again \n Your new balance is {money_won} euros")
+    else:
+        pass
+
+
+get_questions_geog(), get_questions_science(), get_questions_politics()
